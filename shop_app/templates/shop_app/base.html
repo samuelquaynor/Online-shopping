@@ -1,0 +1,263 @@
+{% load static %}
+{% load bootstrap4 %}
+<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    {% bootstrap_css %}
+	    {% bootstrap_javascript jquery='full' %}  
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+	    <script>
+	      var user = '{{request.user}}';
+
+	      function getToken(name) {
+	    let cookieValue = null;
+	    if (document.cookie && document.cookie !== '') {
+	        const cookies = document.cookie.split(';');
+	        for (let i = 0; i < cookies.length; i++) {
+	            const cookie = cookies[i].trim();
+	            // Does this cookie string begin with the name we want?
+	            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+	                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                break;
+	            }
+	        }
+	    }
+	    return cookieValue;
+	}
+	const csrftoken = getToken('csrftoken');
+	    </script>
+	</head>
+	<body>
+		<div id="shopify-section-header" class="shopify-section"><div id="pseudo_sticky_block" style="height: 0px;"></div>
+			<header id="page_header">
+				<div class="page_container">
+					<div class="top_pannel inverted" style="background: #4bafba"> 
+						<div class="container"> 
+							<div class="top_pannel_text">Order online or call us (1800) 000 8808</div>
+							<div class="top_pannel_menu">
+									<div class="header_search">
+										<span class="search_toggle"><i class="fa fa-search" aria-hidden="true"></i><b>Search</b><i class="fa fa-times"></i></span>
+										<form action="/search" method="get" role="search" class="search_form open">
+											<input type="search" name="q" placeholder="Search" aria-label="Search">
+											<button type="submit">
+												<i class="fa fa-search" aria-hidden="true"></i>
+											</button>
+										</form>
+											<script>
+												theme.searchAjaxOn = true;
+											</script>
+											<div id="search_result_container"></div>
+									</div>
+									<div class="header_account">
+										<a href="/account" title="My account"><i class="fa fa-user" aria-hidden="true"></i></a>
+									</div>
+									<div class="header_wishlist">
+										<a href="/pages/wishlist"><i class="fa fa-heart" aria-hidden="true"></i><span>Wishlist</span></a>
+									</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="header_wrap1">   
+						<div class="container header_main_wrap">
+							<div class="header_wrap2 header_left">
+								<a class="header_logo" href="https://theme525-building-materials-online-store.myshopify.com">
+									<img src="//cdn.shopify.com/s/files/1/0049/7670/5636/files/logo_230x20_crop_center.png?v=1543686343" alt="Materialmax.com">
+								</a>
+							</div>
+							<div class="header_wrap2 header_center">
+									<nav id="megamenu" class="megamenu megamenu_desktop">
+										<h2 id="megamenu_mobile_toggle"><i class="fa fa-bars" aria-hidden="true"></i>Menu</h2>
+										<div id="megamenu_mobile_close" style="display: none;">
+											<div class="close_icon"></div>
+										</div>
+										<ul id="megamenu_level__1" class="level_1 sf-js-enabled sf-arrows">
+												<li class="level_1__item level_2__small">
+													<a class="level_1__link active sf-with-ul" href="https://theme525-building-materials-online-store.myshopify.com">Home
+														<i class="level_1__trigger megamenu_trigger" data-submenu="menu_1543696007398"></i> 
+													</a>
+													<ul class="level_2" id="menu_1543696007398">
+														<li>
+															<div><ul class="level_3">
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/cement">Cements</a>
+																</li>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/sand-aggregates">Sand &amp; Aggregates</a>
+																</li>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/tmt-steel-bars">TMT Steel Bars</a>
+																</li>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/bricks-blocks">Bricks &amp; Blocks</a>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/electrical">Electrical</a>							
+																</li>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/plumbing">Plumbing</a>
+																</li>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/wooden-products">Wooden Products</a>
+																</li>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/tiles">Tiles</a>
+																</li>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/bathroom">Bathroom</a>
+																</li>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/accessories">Accessories</a>
+																</li>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/hardware-fixtures">Hardware Fixtures</a>
+																</li>
+																<li class="level_3__item ">
+																	<a class="level_3__link" href="/collections/paints-finishes">Paints &amp; Finishes</a>
+																</li>
+															</ul>
+														</div>
+													</li>
+												</ul>
+											</li>
+										<li class="level_1__item level_2__products">
+											<a class="level_1__link sf-with-ul" href="/collections/sale">Sale
+												<i class="level_1__trigger megamenu_trigger" data-submenu="menu_1479746552441"></i> 
+											</a>
+											<ul class="level_2" id="menu_1479746552441">
+												<li class="container">
+													<div class="megamenu_col__item">
+														<div class="product">
+															<div class="product_img">
+																<a href="/products/tile_floor_mosaic">
+																	<img src="//cdn.shopify.com/s/files/1/0049/7670/5636/products/tile_floor_mosaic_1_9ac89d41-d237-4ca2-ad09-8bb1caa71654_255x.png?v=1543679428" alt="Tile Floor Mosaic">
+																</a>
+															</div>
+															<div class="product_info">
+																<p class="product_name">
+																	<a href="/products/tile_floor_mosaic">Tile Floor Mosaic</a>
+																</p>
+																<p class="product_price">
+																	<span class="money" data-currency-usd="$50.00">$50.00</span>
+																	<span class="money money_sale" data-currency-usd="$55.00">$55.00</span>
+																</p>
+															</div>
+														</div>
+													</div>
+													<div class="megamenu_col__item">
+														<div class="product">
+															<div class="product_img">
+																<a href="/products/set_of_3_modern_home_decor_mini_succulent_artificial_plants_with_square_black_ceramic_pots">
+																	<img src="//cdn.shopify.com/s/files/1/0049/7670/5636/products/set_of_3_modern_home_decor_mini_succulent_artificial_plants_with_square_black_ceramic_pots_1_38419e10-a2a0-4697-8d3f-c1d6220a21e4_255x.png?v=1543679420" alt="Set Of 3 Modern Home Decor Mini Succulent Artificial Plants With Square Black Ceramic Pots">
+																</a>
+															</div>
+															<div class="product_info">
+																<p class="product_name">
+																	<a href="/products/set_of_3_modern_home_decor_mini_succulent_artificial_plants_with_square_black_ceramic_pots">Set Of 3 Modern Home Decor Mini Succulent Artif...</a>
+																</p>
+																<p class="product_price">
+																	<span class="money" data-currency-usd="$25.00">$25.00</span>
+																	<span class="money money_sale" data-currency-usd="$38.00">$38.00</span>
+															</div>
+														</div>
+													</div>
+													<div class="megamenu_col__item">
+														<div class="product">
+															<div class="product_img">
+																<a href="/products/raphael_rozen_classic_vintage_hanging_framed_wall_mounted_mirror">
+																	<img src="//cdn.shopify.com/s/files/1/0049/7670/5636/products/raphael_rozen_classic_vintage_hanging_framed_wall_mounted_mirror_1_4ceb4aa9-8b5a-40f3-b67a-2aa85ad318f3_255x.png?v=1543679406" alt="Raphael Rozen Classic Vintage Hanging Framed Wall Mounted Mirror">
+																</a>
+															</div>
+															<div class="product_info">
+																<p class="product_name">
+																	<a href="/products/raphael_rozen_classic_vintage_hanging_framed_wall_mounted_mirror">Raphael Rozen Classic Vintage Hanging Framed Wa...</a>
+																</p>
+																<p class="product_price">
+																	<span class="money" data-currency-usd="$25.00">$25.00</span>
+																	<span class="money money_sale" data-currency-usd="$29.00">$29.00</span>
+																</p>
+															</div>
+														</div>
+													</div>
+													<div class="megamenu_col__item">
+														<div class="product">
+															<div class="product_img">
+																<a href="/products/nearly_natural_528_decorative_chests_brown_set_of_2">
+																	<img src="//cdn.shopify.com/s/files/1/0049/7670/5636/products/nearly_natural_528_decorative_chests_brown_set_of_2_1_5c24508c-c749-4c7c-8ec4-c915e3bfdfc1_255x.png?v=1543679391" alt="Nearly Natural 528 Decorative Chests Brown Set Of 2">
+																</a>
+															</div>
+															<div class="product_info">
+																<p class="product_name">
+																	<a href="/products/nearly_natural_528_decorative_chests_brown_set_of_2">Nearly Natural 528 Decorative Chests Brown Set ...</a>
+																</p>
+																<p class="product_price">
+																	<span class="money" data-currency-usd="$43.00">$43.00</span>
+																	<span class="money money_sale" data-currency-usd="$48.00">$48.00</span>
+																</p>
+															</div>
+														</div>
+													</div>														
+												</li>
+											</ul>
+										</li>
+										<li class="level_1__item">
+											<a class="level_1__link " href="/pages/contact-us">Contact us
+											</a>
+										</li>	
+										</ul>
+									</nav>
+							</div>
+							<div class="header_wrap2 header_right">
+									<div class="header_cart" id="main__cart_item">
+										<a class="cart_link" href="/cart"><b><i class="fa fa-shopping-bag" aria-hidden="true"></i>My Cart: </b><span id="cart_items"> 1 </span> item(s)</a>
+											<script>
+												theme.cartAjaxOn = true;
+												theme.cartAjaxTextEmpty = 'It appears that your cart is currently empty';
+												theme.cartAjaxTextTotalPrice = 'Total price';
+												theme.cartAjaxTextGoCart = 'Go to cart';
+												theme.cartAjaxTextClearCart = 'Clear cart';
+											</script>
+											<div class="cart_content_wrap">
+												<div class="cart_content_preloader off">
+													<div class="global_loader"></div>
+												</div>
+												<div id="cart_content_box">
+														<ul class="cart_list_items">
+																<li class="cart_items" data-id="1">
+																	<img class="item_img" src="//cdn.shopify.com/s/files/1/0049/7670/5636/products/elements_7mm_oak_laminate_in_butterscotch_1_a413439d-7ec1-48dc-9ac3-2ad0178fd6af_90x90.png?v=1569047663" alt="Elements 7mm Oak Laminate in Butterscotch">
+																	<div class="item_desc">
+																		<a class="product_title" href="/products/elements_7mm_oak_laminate_in_butterscotch">Elements 7mm Oak Laminate in Butterscotch</a>
+																		<span class="money" data-currency-usd="$55.00">$55.00</span>
+																		<p class="product_quantity">x1</p>
+																		<a class="item_remove_btn" href="#" item-id="15294498209892"><i class="fa fa-trash"></i></a>
+																	</div>
+																</li>
+														</ul>
+														<div class="box_footer">
+															<p class="cart_total"><b>Total price: </b><span class="money" data-currency-usd="$55.00">$55.00</span></p>
+															<a id="clear_cart_all_items" class="cart_clear" href="/cart/clear"><i class="fa fa-refresh" title="Clear cart"></i></a>
+															<a class="btn cart_url" href="/cart">Go to cart</a>
+														</div>	
+												</div>
+											</div>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+{% block content %}{% endblock content %} 
+			<style>
+				#page_header .level_1__link:hover {color: #4bafba !important;} 
+				#page_header .header_cart:hover .cart_link {color: #4bafba !important;} 
+				#page_header .level_1__link.active  {color: #4bafba !important;} 
+			</style>
+			</div>
+
+    <script src="" type="text/javascript"></script>
+    </div>
+    
+	</body>
+</html>
